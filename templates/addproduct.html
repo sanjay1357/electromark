@@ -1,0 +1,1179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  
+
+
+<!-- start add product -->
+   <link href="{% static 'addproduct/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'addproduct/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+   <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="{% static 'addproduct/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'addproduct/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'addproduct/css/main.css' %}" rel="stylesheet" media="all">
+
+<!-- end add product -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+ <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title" style="color:blue"><center>ADD PRODUCTS</center></h2>
+                    <form name="myform" action="adding" method="POST" id="myform" enctype="multipart/form-data"> 
+                        {% csrf_token %}
+
+                          <div class="row row-space">
+                             <div class="col-2">
+                             <div class="input-group">
+                            <label class="label">CATEGORY</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="category" id="category" onchange="exam()">
+                                  
+                                    <option selected="selected">MOBILES</option>
+                                    <option>ACCESSORIES</option>
+                                     <option>COMPUTERS</option>
+                                    <option>LAPTOPS</option>
+                                    <option>TABLETS</option>
+                                    <option>TV</option>
+                                    <option>APPLIANCES</option>
+              
+                                </select>
+                                <div class="select-dropdown"></div>
+                               </div>
+                              </div>
+                           </div>
+                            <div class="col-2" id="subcategoryaccessories">
+                             <div class="input-group">
+                            <label class="label">SUBCATEGORY</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="subcategory1" id="subcategoryvalue1" onchange="exam()">
+                                    
+                                    <option>HEADSETS</option>
+                                    <option>MOBILE CASES</option>
+                                    <option>TEMPERED GLASS</option>
+                                    <option>MOBILE CHARGERS</option>
+                                    <option>MOUSE</option>
+                                    <option>POWER BANKS</option>
+                                    <option>EXTERNAL HARD DISKS</option>
+                                    <option>KEYBOARDS</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                               </div>
+                              </div>
+                           </div>
+
+
+
+
+                            <div class="col-2" id="subcategoryappliances">
+                             <div class="input-group">
+                            <label class="label">SUBCATEGORY</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="subcategory2" id="subcategoryvalue2" onchange="exam()">
+                                    
+                                    <option>WASHING MACHINE</option>
+                                    <option>REFRIGERATORS</option>
+                                    <option>AIR CONDITIONERS</option>
+                                    <option>FANS</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                               </div>
+                              </div>
+                           </div>
+
+
+                  <div class="col-2">
+                                <div class="input-group" id="brand">
+                                    <label class="label">BRAND</label>
+                                <input class="input--style-4" type="text" name="brand" id="brandvalue" onkeyup="return forceLower(this);">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">PRODUCT NAME</label>
+                                    <input class="input--style-4" type="text" name="name" onkeyup="return forceLower(this);" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">ORGINAL PRICE</label>
+                                    <input class="input--style-4" type="number" name="oriprice" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "6" onkeypress="return isNumberKey(event)" min="0">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">CURRENT PRICE</label>
+                                    <input class="input--style-4" type="number" name="curprice" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "6" onkeypress="return isNumberKey(event)" min="0">
+                                </div>
+                            </div>
+                             <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">AVAILABLE STOCK</label>
+                                    <input class="input--style-4"  type="number" name="stock" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "5" onkeypress="return isNumberKey(event)" min="0">
+                                </div>
+                            </div>
+                        </div>
+
+
+                          <div class="row row-space">
+                            <div class="col-2">
+                                <div>
+                                    <label class="label">IMAGE 1</label>
+                                    <input   class="mass" type="file" id="img" name="img1" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                               <div>
+                                    <label class="label">IMAGE 2</label>
+                                    <input  type="file" id="img" name="img2" accept="image/*">
+                                </div>
+                            </div>
+                        </div><BR>
+                        
+
+                        <div class="row row-space">
+                           
+                            <div class="col-2">
+                            <div class="input-group">
+                                    <label class="label">RATING</label>
+                                    <input class="input--style-4" type="number" name="rating" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1" onkeypress="return isNumberKey(event)" min="0" max="5">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row row-space">
+                           <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">DESCRIPTION</label>
+                                    <textarea id="w3review" name="description" rows="4" cols="42"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                            <div class="input-group" id="mobile1">
+                                    <label class="label">PROCESSOR</label>
+                                    <input class="input--style-4" type="text" name="processor">
+                                </div>
+                            </div>
+                       
+                 
+                        </div>
+                      
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group" id="mobile2">
+                                    <label class="label">PRIMARY CAMERA</label>
+                                    <input class="input--style-4" type="number" name="pricamera" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "3" onkeypress="return isNumberKey(event)" min="0" max="200">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group" id="mobile3">
+                                    <label class="label">SECONDARY CAMERA</label>
+                                    <input class="input--style-4" type="number" name="seccamera" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "3" onkeypress="return isNumberKey(event)" min="0" max="100">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+ <div class="row row-space">
+                            <div class="col-2">
+                        <div class="input-group" id="mobile4">
+                            <label class="label">RAM</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select id="ram" name="ram">
+                                    <option value=512>512MB</option>
+                                    <option value=1>1GB</option>
+                                    <option value=2>2GB</option>
+                                    <option value=3>3GB</option>
+                                    <option value=4>4GB</option>
+                                    <option value=6>6GB</option>
+                                    <option value=8>8GB</option>
+                                    <option value=12>12GB</option>
+                                    <option value=16>16GB</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                                <div class="input-group" id="mobile5">
+                            <label class="label">INTERNAL MEMORY</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="internal">
+                                   
+                                    <option value=512>512MB</option>
+                                    <option value=1>1GB</option>
+                                    <option value=4>4GB</option>
+                                    <option value=6>6GB</option>
+                                    <option value=8>8GB</option>
+                                    <option value=16>16GB</option>
+                                    <option value=32>32GB</option>
+                                    <option value=64>64GB</option>
+                                    <option value=128>128GB</option>
+                                    <option value=256>256GB</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row row-space">
+                            <div class="col-2">
+                            <div class="input-group" id="mobile6">
+                                    <label class="label">COLOR</label>
+                                    <input class="input--style-4" type="text" name="color" onkeyup="return forceLower(this);" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                            <div class="input-group" id="mobile7">
+                                    <label class="label">BATTERY CAPACITY</label>
+                                    <input class="input--style-4" type="number" name="battery" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "5" onkeypress="return isNumberKey(event)" min="0" max="50000">
+                                </div>
+                            </div>
+                       
+                 
+                        </div>
+
+
+
+
+              
+
+   <!-- COMPUTER STARTS-->
+
+
+             
+                        <div class="row row-space">
+                            <div class="col-2">
+                        <div class="input-group" id="computer1" style="display:none;">
+                            <label class="label">RAM</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="pcram">
+                                    <option value=2>2GB</option>
+                                    <option value=4>4GB</option>
+                                    <option value=6>6GB</option>
+                                    <option value=8>8GB</option>
+                                    <option value=16>16GB</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                    </div>
+                                <div class="col-2">
+                        <div class="input-group" id="computer2" style="display:none;">
+                            <label class="label">HARD DISK CAPACITY</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="pcharddisk">
+                                    <option value=0>NIL</option>
+                                    <option value=32>32GB</option>
+                                    <option value=250>250GB</option>
+                                    <option value=320>320GB</option>
+                                    <option value=500>500GB</option>
+                                    <option value=1>1TB</option>
+                                    <option value=2>2TB</option>
+                                    <option value=3>3TB</option>
+                                    <option value=4>4TB</option>
+
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                        </div>
+
+                      
+
+                   
+                   <div class="row row-space">
+                            <div class="col-2">
+                            <div class="input-group" id="computer3" style="display:none;">
+                                    <label class="label">PROCESSOR</label>
+                                    <input class="input--style-4" type="text" name="pcprocessor" onkeyup="return forceLower(this);">
+                                </div>
+                            </div>
+                             <div class="col-2">
+                        <div class="input-group" id="computer4" style="display:none;">
+                            <label class="label">SSD CAPACITY</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="pcssd">
+                                    <option value=0>NIL</option>
+                                    <option value=8>8GB</option>
+                                    <option value=128>128GB</option>
+                                    <option value=256>256GB</option>
+                                    <option value=512>512GB</option>
+                                    <option value=500>500GB</option>
+                                    <option value=1>1TB</option>
+                                    <option value=2>2TB</option>
+
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                    </div>
+                       
+                 
+                        </div>
+
+
+
+<!-- COMPUTER ends-->
+
+
+
+                      
+          
+
+
+
+
+
+
+<!-- headset ends-->
+
+
+<!-- MOBILECASES STARTS-->
+
+                             
+                        <div class="row row-space">
+                            <div class="col-2">
+                            <div class="input-group" id="acc1" style="display:none;">
+                                    <label class="label">BRAND</label>
+                                    <input class="input--style-4" type="text" name="accbrand" onkeyup="return forceLower(this);">
+                                </div>
+                            </div>
+                             
+                      <div class="col-2">
+                            <div class="input-group" id="acc2" style="display:none;">
+                                    <label class="label">TYPE</label>
+                                    <input class="input--style-4" type="text" name="acctype" onkeyup="return forceLower(this);">
+                                </div>
+                            </div>
+
+                        </div>
+
+<!-- MOBILECASES ENDS-->
+
+<!-- TEMPER STARTS-->
+                                  
+
+                                    
+                        <div class="row row-space">
+                            <div class="col-2">
+                            <div class="input-group" id="acc3" style="display:none;">
+                                    <label class="label">FEATURES</label>
+                                    <input class="input--style-4" type="text" name="accfeatures" onkeyup="return forceLower(this);">
+                                </div>
+                            </div>
+                             
+                     <div class="col-2">
+                            <div class="input-group" id="acc4" style="display:none;">
+                                    <label class="label">INTERFACES</label>
+                                    <input class="input--style-4" type="text" name="accinterfaces" onkeyup="return forceLower(this);">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+<!-- TEMPER ENDS-->
+
+<!-- MOBILE CHARGER START-->
+
+                                  
+                             <div class="row row-space">
+                             <div class="col-2">
+                            <div class="input-group" id="acc5" style="display:none;">
+                                    <label class="label">CAPACITY</label>
+                                    <input class="input--style-4" type="number" name="acccapacity" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "6" onkeypress="return isNumberKey(event)" min="0" value="0">
+                                </div>
+                            </div>
+                             
+                       <div class="col-2">
+                            <div class="input-group" id="acc6" style="display:none;">
+                                    <label class="label">CONNECTIVITY</label>
+                                    <input class="input--style-4" type="text" name="accconnectivity" onkeyup="return forceLower(this);">
+                                </div>
+                            </div>
+                       
+                 
+                        </div>
+       
+       
+                             
+
+
+
+
+
+<!-- TV  STARTSS-->
+                            
+                          
+                                <div class="row row-space">
+                             <div class="col-2">
+                            <div class="input-group" id="tv1" style="display:none;">
+                                    <label class="label">SCREEN SIZE</label>
+                                    <input class="input--style-4" type="number" name="screensize" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "2" onkeypress="return isNumberKey(event)" min="0">
+                                </div>
+                            </div>
+                             
+                       <div class="col-2">
+                        <div class="input-group" id="tv2" style="display:none;">
+                            <label class="label">RESOLUTION</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="resolution">
+                                    <option>NORMAL</option>
+                                    <option>FULL HD</option>
+                                    <option>HD READY</option>
+                                    <option>4K</option>
+                                    <option>8K</option>
+                                   
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                        </div>  
+
+ <div class="row row-space">
+                            <div class="col-2" id="tv3" style="display:none;">
+                        <div class="input-group">
+                            <label class="label">SCREEN TYPE</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="screentype">
+                                   
+                                    <option>LED</option>
+                                    <option>OLED</option>
+                                    <option>QLED</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                    </div>
+                             
+                       <div class="col-2">
+                        <div class="input-group" id="tv4" style="display:none;">
+                            <label class="label">SMART TV</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="smarttv">
+                                   
+                                    <option>YES</option>
+                                    <option>NO</option>
+                                   
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                        </div>  
+
+
+
+
+<!-- TV  ENDS-->
+
+
+<!-- WASHING MACHINE  STARTS-->
+
+                                  <div class="row row-space">
+                            
+                               <div class="col-2">
+                                <div class="input-group" id="app1" style="display:none;">
+                                    <label class="label">BRAND</label>
+                                    <input class="input--style-4" type="text" name="appbrand" onkeyup="return forceLower(this);">
+                                </div>
+                            </div>
+                      <div class="col-2">
+                                <div class="input-group" id="app2" style="display:none;">
+                                    <label class="label">TYPE</label>
+                                    <input class="input--style-4" type="text" name="apptype" onkeyup="return forceLower(this);">
+                                </div>
+                            </div>
+
+                        </div>  
+
+
+
+
+                          <div class="row row-space">
+                            
+                               <div class="col-2">
+                                <div class="input-group" id="app3" style="display:none;">
+                                    <label class="label">CAPACITY</label>
+                                    <input class="input--style-4" type="number" name="appcapacity"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "5" min="0" value="0" step="0.01">
+                                </div>
+                            </div>
+                      <div class="col-2">
+                                <div class="input-group" id="app4" style="display:none;">
+                                    <label class="label">SIZE</label>
+                                    <input class="input--style-4" type="number" name="appsize" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "3" onkeypress="return isNumberKey(event)" min="0" value="0">
+                                </div>
+                            </div>
+
+                        </div>  
+
+
+
+                          <div class="row row-space">
+                            
+                               <div class="col-2">
+                                <div class="input-group" id="app5" style="display:none;">
+                                    <label class="label">FEATURES</label>
+                                    <input class="input--style-4" type="text" name="appfeatures" onkeyup="return forceLower(this);">
+                                </div>
+                            </div>
+                        </div>
+                                      
+                       
+
+
+<!-- FAN ENDS-->
+
+
+
+
+                     <center>
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                        </div>
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+  document.getElementById("subcategoryaccessories").style.display = "none";
+  document.getElementById("subcategoryappliances").style.display = "none";
+  document.getElementById("brand").style.display="block";
+
+
+  function exam()
+  { 
+
+     
+
+     var x = document.getElementById("category").value;
+     var y = document.getElementById("subcategoryvalue1").value;
+     var z = document.getElementById("subcategoryvalue2").value;
+     
+     if(x=="ACCESSORIES")
+     {
+     
+       document.getElementById("subcategoryaccessories").style.display = "block";
+        document.getElementById("subcategoryappliances").style.display = "none";
+        document.getElementById("brand").style.display = "none";
+        mymobile();
+        if(y=="HEADSETS")
+        {
+        document.getElementById("acc1").style.display = "block";
+        document.getElementById("acc2").style.display = "block";
+        document.getElementById("acc3").style.display = "block";
+        document.getElementById("acc6").style.display = "block";
+
+        document.getElementsByName("acctype")[0].placeholder="eg : in the ear,on the ear,etc,...";
+        document.getElementsByName("accfeatures")[0].placeholder="eg : deep bass,flatwire,etc,...";
+        document.getElementsByName("accconnectivity")[0].placeholder="eg : bluetooth or wired";
+
+       }
+       if(y=="MOBILE CASES")
+       {
+        document.getElementById("acc1").style.display = "block";
+        document.getElementById("acc2").style.display = "block";   
+        document.getElementsByName("acctype")[0].placeholder="eg : back cover,bumper case,etc,..."; 
+       }
+       if(y=="TEMPERED GLASS")
+       {
+        document.getElementById("acc1").style.display = "block";
+        document.getElementById("acc2").style.display = "block";
+        document.getElementById("acc3").style.display = "block";
+        document.getElementsByName("acctype")[0].placeholder="eg : nano glass,screen guard,etc,...";
+        document.getElementsByName("accfeatures")[0].placeholder="eg : washable,antiglare,etc,...";
+       }
+       if(y=="MOBILE CHARGERS")
+       {
+        document.getElementById("acc1").style.display = "block";
+        document.getElementById("acc5").style.display = "block";
+         document.getElementsByName("acccapacity")[0].placeholder="eg : no.of.usb.ports";
+       }
+       if(y=="MOUSE")
+       {
+        document.getElementById("acc1").style.display = "block";
+        document.getElementById("acc3").style.display = "block";
+        document.getElementById("acc4").style.display = "block";
+
+         document.getElementsByName("accfeatures")[0].placeholder="eg : wired or wireless";
+         document.getElementsByName("accinterfaces")[0].placeholder="eg : usb,bluetooth,etc,...";
+       }
+       if(y=="POWER BANKS")
+       {
+        document.getElementById("acc1").style.display = "block";
+        document.getElementById("acc2").style.display = "block";
+        document.getElementById("acc5").style.display = "block";
+
+        document.getElementsByName("acctype")[0].placeholder="eg : alkaline,lithium-ion,etc,...";
+        document.getElementsByName("acccapacity")[0].placeholder="Enter the mAh";
+       }
+       if(y=="EXTERNAL HARD DISKS")
+       {
+        document.getElementById("acc1").style.display = "block";
+        document.getElementById("acc2").style.display = "block";
+        document.getElementById("acc5").style.display = "block";
+        document.getElementById("acc6").style.display = "block";
+
+       
+        document.getElementsByName("acctype")[0].placeholder="hdd or ssd";
+        document.getElementsByName("acccapacity")[0].placeholder="Enter the memory in GB";
+        document.getElementsByName("accconnectivity")[0].placeholder="eg : usb,eSATA,thunderbolt,etc,...";
+       }
+       if(y=="KEYBOARDS")
+       {
+        document.getElementById("acc1").style.display = "block";
+        document.getElementById("acc2").style.display = "block";
+        document.getElementById("acc4").style.display = "block";
+
+         document.getElementsByName("acctype")[0].placeholder="for : laptop,desktop,tablet,etc,..";
+          document.getElementsByName("accinterfaces")[0].placeholder="eg : internal,bluetooth,etc,...";
+       }
+     }
+     if(x=="APPLIANCES")
+     {
+      
+       document.getElementById("subcategoryaccessories").style.display = "none";
+        document.getElementById("subcategoryappliances").style.display = "block";
+        document.getElementById("brand").style.display = "none";
+        mymobile();
+        if(z=="WASHING MACHINE")
+        {
+        document.getElementById("app1").style.display = "block";  
+         document.getElementById("app2").style.display = "block";  
+          document.getElementById("app3").style.display = "block";  
+         document.getElementById("app4").style.display = "block";  
+
+         document.getElementsByName("apptype")[0].placeholder="eg : washer only,washer with dryer,etc,..";
+         document.getElementsByName("appcapacity")[0].placeholder="Enter the KG";
+         document.getElementsByName("appsize")[0].placeholder="Enter the family size";
+
+
+      }
+      else if(z=="FANS")
+        {
+        document.getElementById("app1").style.display = "block";  
+         document.getElementById("app2").style.display = "block";  
+          document.getElementById("app3").style.display = "block";  
+
+          document.getElementsByName("apptype")[0].placeholder="eg : ceiling,table,etc,..";
+         document.getElementsByName("appcapacity")[0].placeholder="Enter the no.of.blades";  
+      }
+      else if(z=="REFRIGERATORS")
+      {
+        document.getElementById("app1").style.display = "block";  
+         document.getElementById("app2").style.display = "block";  
+          document.getElementById("app3").style.display = "block";  
+         document.getElementById("app4").style.display = "block";   
+          document.getElementById("app5").style.display = "block";
+           
+
+           document.getElementsByName("apptype")[0].placeholder="eg : deep freezer,compact,etc,..";
+           document.getElementsByName("appcapacity")[0].placeholder="Enter the litre";
+           document.getElementsByName("appsize")[0].placeholder="Enter family size";
+           document.getElementsByName("appfeatures")[0].placeholder="eg : convertible,water dispenser,etc,..";
+
+      }
+      else
+      {
+          document.getElementById("app1").style.display = "block";  
+         document.getElementById("app2").style.display = "block";  
+          document.getElementById("app3").style.display = "block";  
+           
+          document.getElementById("app5").style.display = "block"; 
+
+          document.getElementsByName("apptype")[0].placeholder="portable or split or window";
+           document.getElementsByName("appcapacity")[0].placeholder="Enter the ton";
+          
+           document.getElementsByName("appfeatures")[0].placeholder="eg : dust filter,dehumidification,etc,..";
+      }
+     }
+     if(x=="MOBILES" || x=="TABLETS")
+     {
+
+        document.getElementById("subcategoryaccessories").style.display = "none";
+        document.getElementById("subcategoryappliances").style.display = "none";
+        document.getElementById("brand").style.display = "block";
+        mymobile();
+        document.getElementById("mobile1").style.display = "block";
+        document.getElementById("mobile2").style.display = "block";
+        document.getElementById("mobile3").style.display = "block";
+        document.getElementById("mobile4").style.display = "block";
+        document.getElementById("mobile5").style.display = "block";
+        document.getElementById("mobile6").style.display = "block";
+        document.getElementById("mobile7").style.display = "block";  
+        
+
+     }
+     if(x=="COMPUTERS" || x=="LAPTOPS")
+     {
+         document.getElementById("subcategoryaccessories").style.display = "none";
+         document.getElementById("subcategoryappliances").style.display = "none";
+          document.getElementById("brand").style.display = "block";
+          mymobile();
+         document.getElementById("computer1").style.display = "block";
+         document.getElementById("computer2").style.display = "block";
+         document.getElementById("computer3").style.display = "block";
+         document.getElementById("computer4").style.display = "block";
+        
+     }
+
+     if(x=="TV")
+     {
+        document.getElementById("subcategoryaccessories").style.display = "none";
+        document.getElementById("subcategoryappliances").style.display = "none";
+        document.getElementById("brand").style.display = "block";
+        mymobile();
+        document.getElementById("tv1").style.display = "block";
+        document.getElementById("tv2").style.display = "block";
+        document.getElementById("tv3").style.display = "block";
+        document.getElementById("tv4").style.display = "block";
+       
+     }
+
+   
+
+
+}
+
+
+
+
+
+
+
+
+
+function mymobile()
+{
+  
+  
+  document.getElementById("mobile1").style.display = "none";
+  document.getElementById("mobile2").style.display = "none";
+  document.getElementById("mobile3").style.display = "none";
+  document.getElementById("mobile4").style.display = "none";
+  document.getElementById("mobile5").style.display = "none";
+  document.getElementById("mobile6").style.display = "none";
+  document.getElementById("mobile7").style.display = "none";
+
+
+  document.getElementById("computer1").style.display = "none";
+  document.getElementById("computer2").style.display = "none";
+  document.getElementById("computer3").style.display = "none";
+  document.getElementById("computer4").style.display = "none";
+
+
+ 
+ 
+  
+  document.getElementById("tv1").style.display = "none";
+  document.getElementById("tv2").style.display = "none";
+  document.getElementById("tv3").style.display = "none";
+  document.getElementById("tv4").style.display = "none";
+
+  
+   document.getElementById("acc1").style.display = "none";
+   document.getElementById("acc2").style.display = "none";
+   document.getElementById("acc3").style.display = "none";
+   document.getElementById("acc4").style.display = "none";
+   document.getElementById("acc5").style.display = "none";
+   document.getElementById("acc6").style.display = "none";
+   
+
+   document.getElementById("app1").style.display = "none";
+   document.getElementById("app2").style.display = "none";
+   document.getElementById("app3").style.display = "none";
+   document.getElementById("app4").style.display = "none";
+   document.getElementById("app5").style.display = "none";
+
+   
+
+}
+
+
+
+
+
+
+ 
+</script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script><script  src="./script.js">
+</script>
+
+
+
+
+
+<!-- start view edit update product -->
+    <script src="{% static 'addproduct/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'addproduct/vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'addproduct/vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{% static 'addproduct/vendor/datepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'addproduct/js/global.js' %}"></script>
+
+<!-- end view edit update product -->
+
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+ function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+
+
+
+
+$('document').ready(function(){
+   
+ $("form").submit(function(event){
+     event.preventDefault();
+
+    
+    var check=0;
+var s1=document.forms["myform"]["subcategory1"].value;
+   var s2=document.forms["myform"]["subcategory2"].value;
+
+   var a=document.forms["myform"]["category"].value;
+   var brand=document.forms["myform"]["brand"].value;
+   var b=document.forms["myform"]["name"].value;
+   var c=document.forms["myform"]["oriprice"].value;
+   var d=document.forms["myform"]["curprice"].value;
+   var e=document.forms["myform"]["stock"].value;
+   var f=document.forms["myform"]["img1"].value;
+   var g=document.forms["myform"]["img2"].value;
+
+   var i=document.forms["myform"]["rating"].value;
+   var j=document.forms["myform"]["description"].value;
+
+
+   var k=document.forms["myform"]["processor"].value;
+   var l=document.forms["myform"]["pricamera"].value;
+   var m=document.forms["myform"]["seccamera"].value;
+   var n=document.forms["myform"]["ram"].value;
+   var o=document.forms["myform"]["internal"].value;
+   var p=document.forms["myform"]["color"].value;
+   var q=document.forms["myform"]["battery"].value;
+
+   var r=document.forms["myform"]["pcram"].value;
+   var s=document.forms["myform"]["pcharddisk"].value;
+   var t=document.forms["myform"]["pcprocessor"].value;
+   var u=document.forms["myform"]["pcssd"].value;
+
+
+   var v=document.forms["myform"]["screensize"].value;
+   var w=document.forms["myform"]["resolution"].value;
+   var x=document.forms["myform"]["screentype"].value;
+   var y=document.forms["myform"]["smarttv"].value;
+
+
+   var ac1=document.forms["myform"]["accbrand"].value;
+   var ac2=document.forms["myform"]["acctype"].value;
+   var ac3=document.forms["myform"]["accfeatures"].value;
+   var ac4=document.forms["myform"]["accinterfaces"].value;
+   var ac5=document.forms["myform"]["acccapacity"].value;
+   var ac6=document.forms["myform"]["accconnectivity"].value;
+
+
+   var ap1=document.forms["myform"]["appbrand"].value;
+   var ap2=document.forms["myform"]["apptype"].value;
+   var ap3=document.forms["myform"]["appcapacity"].value;
+   var ap4=document.forms["myform"]["appsize"].value;
+   var ap5=document.forms["myform"]["appfeatures"].value;
+
+ 
+
+
+   if(b==""||c==""||d==""||e==""||f==""||g==""||i==""||j=="")
+   {
+     alert("some of the fields are empty please fill it(1)");
+     check=1;
+     
+   }
+    else if(a=="MOBILES" || a=="TABLETS")
+   {
+      if(k==""||l==""||m==""||n==""||o==""||p==""||q==""||brand=="")
+      {
+         alert("some of the fields are empty please fill it(mob/tab)"); check=1;
+      }
+   }
+
+   else if(a=="COMPUTERS" || a=="LAPTOPS")
+   {
+       if(r==""||s==""||t==""||u==""||brand=="")
+       {
+       alert("some of the fields are empty please fill it(com/lab)");  check=1;
+       }
+   }
+
+   else if(a=="TV")
+   {
+      if(v==""||w==""||x==""||y==""||brand=="")
+       {
+       alert("tv fields are empty");  check=1;
+       }
+   }
+
+   else if(a=="ACCESSORIES")
+   {
+      if(s1=="HEADSETS")
+      {
+         if(ac1==""||ac2==""||ac3==""||ac6=="")
+         {
+            alert("headset empty field");  check=1;
+         }
+      }
+
+       if(s1=="MOBILE CASES")
+      {
+         if(ac1==""||ac2=="")
+         {
+            alert("mobilecases empty field");  check=1;
+         }
+      }
+
+       if(s1=="TEMPERED GLASS")
+      {
+         if(ac1==""||ac2==""||ac3=="")
+         {
+            alert("tempered glass empty field");  check=1;
+         }
+      }
+
+      if(s1=="MOBILE CHARGERS")
+      {
+         if(ac1==""||ac5=="")
+         {
+            alert("mobilechargers empty field");  check=1;
+         }
+      }
+
+     if(s1=="MOUSE")
+      {
+         if(ac1==""||ac3==""||ac4=="")
+         {
+            alert("mouse empty field");  check=1;
+         }
+      }
+
+     if(s1=="POWER BANKS")
+      {
+         if(ac1==""||ac2==""||ac5=="")
+         {
+            alert("powerbank empty field"); check=1; 
+         }
+      }
+
+
+       if(s1=="EXTERNAL HARD DISKS")
+      {
+         if(ac1==""||ac2==""||ac5==""||ac6=="")
+         {
+            alert("harddisks empty field");  check=1;
+         }
+      }
+
+
+       if(s1=="KEYBOARDS")
+      {
+         if(ac1==""||ac2==""||ac4=="")
+         {
+            alert("keyboards empty field");  check=1;
+         }
+      }
+
+ }
+
+
+
+
+else if(a=="APPLIANCES")
+{
+    
+     if(s2=="WASHING MACHINE")
+     {
+       
+         if(ap1==""||ap2==""||ap3==""||ap4=="")
+         {
+            alert("washing machine empty field");  check=1;
+         }
+     }
+
+     if(s2=="AIR CONDITIONERS")
+     {
+         if(ap1==""||ap2==""||ap3==""||ap5=="")
+         {
+            alert("ac empty field");  check=1;
+         }
+     }
+
+      if(s2=="REFRIGERATORS")
+     {
+         if(ap1==""||ap2==""||ap3==""||ap4==""||ap5=="")
+         {
+            alert("refrigerators empty field");  check=1;
+         }
+     }
+
+      if(s2=="FANS")
+     {
+         if(ap1==""||ap2==""||ap3=="")
+         {
+            alert("fans empty field");  check=1;
+         }
+     }
+}
+
+if(check==0)
+{
+    
+    var category=document.forms["myform"]["category"].value;
+    var subcategory1=document.forms["myform"]["subcategory1"].value;
+    var subcategory2=document.forms["myform"]["subcategory2"].value;
+    var name=document.forms["myform"]["name"].value;
+    var internal=document.forms["myform"]["internal"].value;
+    var ram=document.forms["myform"]["ram"].value;
+    var color=document.forms["myform"]["color"].value;
+    var pcram=document.forms["myform"]["pcram"].value;
+
+    $.ajax({
+    url: '/productvalidate',
+    type: 'GET',
+    data: {
+        'category':category,
+        'subcategory1':subcategory1,
+        'subcategory2':subcategory2,
+        'name':name,
+        'internal':internal,
+        'ram':ram,
+        'color':color,
+        'pcram':pcram,
+        
+    },
+    success: function(response)
+    {
+        
+      if(response=="notexists")
+      {
+        
+        document.getElementById("myform").submit();
+      }
+      else 
+      {
+        alert("product already exists");
+      }
+    }
+    
+    
+});
+
+}
+
+
+
+
+ });
+});
+
+
+
+
+
+
+
+
+
+
+function forceLower(s)
+{
+    
+   s.value=s.value.toLowerCase();
+
+}
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

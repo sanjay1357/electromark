@@ -1,0 +1,746 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<html>
+  <head>
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link href="{% static 'home/css/main.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+    <link href="{% static 'home/css1/mdb.min.css' %}" rel="stylesheet">
+    <link href="{% static 'home/css1/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home/css/bootstrapss.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/styless.css' %}" type="text/css">
+
+ <link rel="stylesheet" href="{% static 'home/css/allproblem.css' %}">
+ <link rel="stylesheet" href="{% static 'home/css/styleproblem.css' %}">
+   
+
+   
+
+     
+    <link rel="stylesheet" href="{% static 'home/twog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/twog/css/style.css' %}">
+
+
+
+
+ <!-- starts here vembu --><link rel="stylesheet" href="{% static 'home/watch/css/main.css' %}">
+
+
+
+
+ <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/themify-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css">
+
+
+  
+
+
+
+
+
+
+   <link rel="stylesheet" href="{% static 'home/people/fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'home/people/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/people/css/style.css' %}">
+
+<style type="text/css">
+  
+::placeholder {
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: red;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: red;
+}
+</style>
+
+
+
+  </head>
+  <body>
+    <div class="s003">
+      <form action="search" method="GET" name="myform">
+        <div class="inner-form">
+          <p>&emsp; &emsp; &emsp;&emsp; &emsp;</p>
+            <span class="login100-form-logo">
+             <img src="{% static 'home/large.png' %}" class="rounded-circle" alt="Cinque Terre" width="80" height="60">
+          </span> 
+            <p>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;</p>
+            
+
+          <div class="input-field first-wrap">
+            <div class="input-select">
+              <select data-trigger="" name="category">
+                <option>TV</option>
+                <option selected="selected">MOBILES</option>
+                <option>PC</option>
+                <option>APPLIANCES</option>
+                <option>ACCESSORIES</option>
+              </select>
+            </div>
+          </div>
+                    <div class="input-field second-wrap">
+<input id="search" type="text" name="search" onkeyup="myFunction1()" placeholder="                  Enter Product Name" required />
+            
+
+
+            
+
+
+          </div>
+         
+
+          <div class="input-field third-wrap">
+            <button class="btn-search" onclick="search()">
+              <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+              </svg>
+            </button>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+ 
+
+&emsp; &emsp; &emsp;
+
+
+ <div class="input-field first-wrap">
+            <div class="input-select1">
+              <select data-trigger="" name="" onchange="location = this.value;">
+                <option disabled="disabled" selected="selected">sanjay</option>
+                <option value="editprofile"><a href="editprofile">Edit Profile</a></option>
+                <option value="myorders"><a href="myorders">My Orders</a></option>
+                <option>My Cart</option>
+                <option>logout</option>
+              </select>
+            </div>
+          </div>
+
+&emsp; &emsp; &emsp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+ <div class="nav-item">
+            <div class="container">
+                
+                <nav class="nav-menu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="./index.html">Home</a></li>
+                        <li><a href="allproduct/MOBILES">Mobiles</a></li>
+                        <li><a>Accessories</a>
+                            <ul class="dropdown">
+                                <li><a href="allproduct/HEADSETS">Headsets</a></li>
+                                <li><a href="allproduct/MOBILE CASES">Mobile Cases</a></li>
+                                <li><a href="allproduct/TEMPERED GLASS">Tempered Glass</a></li>
+                                <li><a href="allproduct/MOBILE CHARGERS">Mobile Chargers</a></li>
+                                <li><a href="allproduct/MOUSE">Mouse</a></li>
+                                <li><a href="allproduct/POWER BANKS">PowerBanks</a></li>
+                                <li><a href="allproduct/EXTERNAL HARD DISKS">External Hard Disks</a></li>
+                                <li><a href="allproduct/KEYBOARDS">KeyBoards</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="allproduct/COMPUTERS">Computer</a></li>
+                        <li><a href="allproduct/LAPTOPS">Laptops</a></li>
+                        <li><a href="allproduct/TABLETS">Tablets</a></li>
+                        <li><a href="allproduct/TV">Tv</a></li>
+                        <li><a>Appliances</a>
+                         <ul class="dropdown">
+                                <li><a href="allproduct/WASHING MACHINE">Washing Machine</a></li>
+                                <li><a href="allproduct/REFRIGERATORS">Refrigerators</a></li>
+                                <li><a href="allproduct/AIR CONDITIONERS">Air Conditioners</a></li>
+                                <li><a href="allproduct/FANS">Fans</a></li>
+                               
+                            </ul>   
+                        </li>
+                            </ul>
+                   
+                </nav>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+ <div class="fluid-container ">
+       <div id="carouselExample1" class="carousel slide z-depth-1-half" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="allproduct/description/MOBILES/60"><img class="d-block w-100" src="{% static 'home/images/pocom2pro.jpg' %}"alt="First slide" height="500"></a>
+          </div>
+         
+        </div>
+        <a class="carousel-control-prev" href="#carouselExample1" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExample1" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+
+
+<br>
+
+
+<div class="features-ads">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="single-features-ads first">
+                           <img src="{% static 'home/images/icons/f-delivery.png' %}" alt="">
+                            <h4>Free shipping</h4>
+                            <p class="p111"><h6>Fusce urna quam, euismod sit amet mollis quis, vestibulum quis velit. Vesti bulum mal
+                                esuada aliquet libero viverra cursus.</h6> </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single-features-ads second">
+                            <img src="{% static 'home/images/icons/coin.png' %}" alt="">
+                            <h4>100% Money back </h4>
+                            <p class="p111"><h6>Urna quam, euismod sit amet mollis quis, vestibulum quis velit. Vesti bulum mal esuada
+                                aliquet libero viverra cursus. </h6></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single-features-ads">
+                            <img src="{% static 'home/images/icons/chat.png' %}" alt="">
+                            <h4>Online support 24/7</h4>
+                            <p class="p111"><h6>Urna quam, euismod sit amet mollis quis, vestibulum quis velit. Vesti bulum mal esuada
+                                aliquet libero viverra cursus. </h6></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+<h3><center>High Discounts</center></h3><br><br><br><br>
+
+
+
+
+<div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="product_list_slider owl-carousel">
+                        <div class="single_product_list_slider">
+                            <div class="row align-items-center justify-content-between">
+
+
+
+                               {% for d11 in d1 %}
+                                <div class="col-lg-3 col-sm-6">
+                                    <div class="single_product_item">
+
+                                        {% if d11.category == "MOBILES" %}
+                    <a href="allproduct/description/MOBILES/{{d11.id}}"><img src="{{d11.img1.url}}" alt="" height="270px" width="90px"></a>
+                                        {% else %}
+                    <a href="allproduct/description/TABLETS/{{d11.id}}"><img src="{{d11.img1.url}}" alt="" height="270px" width="90px"></a>
+                    {% endif %}
+                                        <div class="single_product_text">
+                                            <h4>{{d11.name}}</h4>
+                                            <center><span style="text-align:center;color:red">{{d11.discount}}% off</span></center>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                     
+                                  {% endfor %}
+
+
+
+                                {% for d11 in d3 %}
+                                <div class="col-lg-3 col-sm-6">
+                                    <div class="single_product_item">
+            <a href="allproduct/description/TV/{{d11.id}}"><img src="{{d11.img1.url}}" alt="" height="270px" width="90px"></a>
+                                        <div class="single_product_text">
+                                            <h4>{{d11.name}}</h4>
+                                            <center><span style="text-align:center;color:red">{{d11.discount}}% off</span></center>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                     {% endfor %}
+
+
+                                    
+
+
+
+
+                              
+
+
+
+
+                        <div class="single_product_list_slider">
+                            <div class="row align-items-center justify-content-between">
+
+
+                                {% for d11 in d4 %}
+
+                                <div class="col-lg-3 col-sm-6">
+                                    <div class="single_product_item">
+    <a href="allproduct/description/{{d11.category}}/{{d11.id}}"> <img src="{{d11.img1.url}}" alt="" height="270px" width="90px"></a>
+                                        <div class="single_product_text">
+                                           <h4>{{d11.name}}</h4>
+                                            <center><span style="text-align:center;color:red">{{d11.discount}}% off</span></center>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                     {% endfor %}
+
+
+
+                                      {% for d11 in d5 %}
+
+                                <div class="col-lg-3 col-sm-6">
+                                    <div class="single_product_item">
+    <a href="allproduct/description/{{d11.subcategory2}}/{{d11.id}}"><img src="{{d11.img1.url}}" alt="" height="270px" width="90px"></a>
+                                        <div class="single_product_text">
+                                            <h4>{{d11.name}}</h4>
+                                            <center><span style="text-align:center;color:red">{{d11.discount}}% off</span></center>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                     {% endfor %}
+
+
+                                  
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<br><br>
+<h3><center>New Arrivals</center></h3><br><br>
+
+
+
+
+
+
+<div class="popular-items pt-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                            <div class="popular-img">
+                                <img src="{{mobiles.img1.url}}" alt="" height="335px" width="290px">
+                                <div class="img-cap"><br>
+                                    <span style="color:brown;">{{mobiles.name}}</span>
+                                </div>
+                                <div class="favorit-items">
+                                 <a href="allproduct/description/{{mobiles.category}}/{{mobiles.id}}" class="btn">Shop Now</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                        <div class="popular-img">
+                             <img src="{{accessories.img1.url}}" alt="" height="335px" width="290px">
+                            <div class="img-cap"><br>
+                                <span style="color:brown;">{{accessories.name}}</span>
+                            </div>
+                            <div class="favorit-items">
+                             <a href="allproduct/description/{{accessories.subcategory1}}/{{accessories.id}}" class="btn">Shop Now</a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                    <div class="popular-img">
+                       <img src="{{tv.img1.url}}" alt="" height="335px" width="290px">
+                        <div class="img-cap"><br>
+                            <span style="color:brown;">{{tv.name}}</span>
+                        </div>
+                        <div class="favorit-items">
+                         <a href="allproduct/description/{{tv.category}}/{{tv.id}}" class="btn">Shop Now</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
+                <div class="popular-img">
+                       <img src="{{appliances.img1.url}}" alt="" height="335px" width="290px">
+                    <div class="img-cap"><br>
+                        <span style="color:brown;">{{appliances.name}}</span>
+                    </div>
+                    <div class="favorit-items">
+                     <a href="allproduct/description/{{appliances.subcategory2}}/{{appliances.id}}" class="btn">Shop Now</a>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
+</div><br><br><br>
+<!-- Popular Items End -->
+<!--? New Arrival Start -->
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container">
+         
+    <div class="site-blocks-cover overlay get-notification" id="special-section" style="background-image: url('{% static "home/images/hero_2.jpg"%}'); background-attachment: fixed; background-position: top;" data-aos="fade">
+      <div class="container">
+
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-7 text-center">
+            <h3 class="section-sub-title">Special Promo</h3>
+            <h3 class="section-title text-white mb-4">Summer Sale</h3>
+            <p class="mb-5 lead">Repudiandae nostrum natus excepturi fuga ullam accusantium vel ut eveniet aut consequatur laboriosam ipsam.</p>
+            
+            <div id="date-countdown" class="mb-5"></div>
+
+            <p><a href="#" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Shop Now</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br>
+
+<section class="unique-feature-area section-gap" id="unique">
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+                        <div class="menu-content pb-60 col-lg-10">
+                            <div class="title text-center">
+                                <h2 class="mb-10 text-white">Most Popular</h2>
+                                <p>Who are in extremely love with eco friendly system.</p>
+                            </div>
+                        </div>
+                    </div>                      
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single-unique-product">
+                                <img class="img-fluid" src="{{mobiles1.img1.url}}" alt="" width="70px" height="10px">
+                                <div class="desc">
+                                    <h5 class="mas">
+                                        {{mobiles1.name}}
+                                    </h5>
+                                    <h6 class="mas">RS {{mobiles1.curprice}}</h6>
+        <a class="text-uppercase primary-btn" href="allproduct/description/{{mobiles1.category}}/{{mobiles1.id}}">Order</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single-unique-product">
+                                <img class="img-fluid" src="{{tv1.img1.url}}" alt="" width="220px" height="1200px">
+                                <div class="desc">
+                                    <h5 class="mas">
+                                        {{tv1.name}}
+                                    </h5>
+                                    <h6 class="mas">RS {{tv1.curprice}}</h6>
+        <a class="text-uppercase primary-btn" href="allproduct/description/TV/{{tv1.id}}">Order</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single-unique-product">
+                            <img class="img-fluid" src="{{accessories1.img1.url}}" alt="" width="100px" height="1200px">
+                                <div class="desc">
+                                    <h5 class="mas">
+                                        {{accessories1.name}}
+                                    </h5>
+                                    <h6 class="mas">RS {{accessories1.curprice}}</h6>
+     <a class="text-uppercase primary-btn" href="allproduct/description/{{accessories1.subcategory1}}/{{accessories1.id}}">Order</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single-unique-product">
+                            <img class="img-fluid" src="{{appliances1.img1.url}}" alt="" width="175px" height="1250px">
+                                <div class="desc">
+                                    <h5 class="mas">
+                                        {{appliances1.name}}
+                                    </h5>
+                                    <h6 class="mas">RS {{appliances1.curprice}}</h6>
+    <a class="text-uppercase primary-btn" href="allproduct/description/{{appliances1.subcategory2}}/{{appliances1.id}}">Order</a>
+                                </div>
+                            </div>
+                        </div>                                                                      
+                    </div>
+                </div>  
+            </section>
+
+
+
+
+
+
+
+
+
+    <div class="site-section testimonial-wrap" id="testimonials-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h3 class="section-sub-title">People Says</h3>
+            <h2 class="section-title mb-3">Testimonials</h2>
+          </div>
+        </div>
+      </div>
+      <div class="slide-one-item home-slider owl-carousel">
+          <div>
+            <div class="testimonial">
+              <figure class="mb-4 d-block align-items-center justify-content-center">
+                <div><img src="{% static 'home/dp.jpg' %}" alt="Image" class="w-100 img-fluid mb-3"></div>
+              </figure>
+              <blockquote class="mb-3">
+                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+              </blockquote>
+              <p class="text-black"><strong>John Smith</strong></p>
+
+              
+            </div>
+          </div>
+          <div>
+            <div class="testimonial">
+              
+              <figure class="mb-4 d-block align-items-center justify-content-center">
+                <div><img src="{% static 'home/dp.jpg' %}" alt="Image" class="w-100 img-fluid mb-3"></div>
+              </figure>
+
+              <blockquote class="mb-3">
+                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+              </blockquote>
+              
+              <p class="text-black"><strong>Robert Aguilar</strong></p>
+              
+              
+            </div>
+          </div>
+
+          <div>
+            <div class="testimonial">
+              <figure class="mb-4 d-block align-items-center justify-content-center">
+                <div><img src="{% static 'home/dp.jpg' %}" alt="Image" class="w-100 img-fluid mb-3"></div>
+              </figure>
+              <blockquote class="mb-3">
+                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+              </blockquote>
+              <p class="text-black"><strong>Roger Spears</strong></p>
+
+              
+            </div>
+           
+          </div>
+
+          <div>
+            <div class="testimonial">
+              <figure class="mb-4 d-block align-items-center justify-content-center">
+                <div><img src="{% static 'home/dp.jpg' %}" alt="Image" class="w-100 img-fluid mb-3"></div>
+              </figure>
+              <blockquote class="mb-3">
+                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+              </blockquote>
+              <p class="text-black"><strong>Kyle McDonald</strong></p>
+
+              
+            </div>
+
+          </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </form>
+ 
+    </div>
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+    <script src="{% static 'home/js/extention/choices.js' %}"></script>
+    <script>
+        
+
+      const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false,
+        itemSelectText: '',
+      });
+
+
+
+function search()
+{
+  alert("hi");
+  document.myform.submit();
+
+}
+
+
+
+function myFunction1() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+    </script>
+
+   <script type="text/javascript" src="{% static 'home/js1/jquery-3.3.1.min.js' %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static 'home/js1/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static 'home/js1/bootstrap.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static 'home/js1/mdb.min.js' %}"></script>
+
+
+
+<script src="{% static 'home/js/jquery-1.12.1.min.js' %}"></script>
+    
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+    
+    <script src="{% static 'home/js/jquery.magnific-popup.js' %}"></script>
+   
+    <script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+   
+    <script src="{% static 'home/js/custom.js' %}"></script>
+
+
+
+<script src="{% static 'home/twog/js/aos.js' %}"></script>
+<script src="{% static 'home/twog/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'home/twog/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'home/twog/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'home/twog/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'home/twog/js/jquery.countdown.min.js' %}"></script>
+  
+  <script src="{% static 'home/twog/js/main.js' %}"></script>
+
+
+<script src="{% static 'home/people/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'home/people/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'home/people/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'home/people/js/aos.js' %}"></script>
+  <script src="{% static 'home/people/js/main.js' %}"></script>
+
+ 
+    
+  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+
+
+</html>

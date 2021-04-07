@@ -1,0 +1,541 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+    <link rel="stylesheet" type="text/css" href="{% static 'viewproduct/vendor/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'viewproduct/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'viewproduct/vendor/animate/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'viewproduct/vendor/select2/select2.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'viewproduct/vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'viewproduct/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'viewproduct/css/main.css' %}">
+
+
+		<link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+			crossorigin="anonymous" /> 
+
+			<style>
+.addbtn{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+  margin-left:1160px;
+}
+.addbtn:hover {
+  background-color: #008CBA;
+  color: white;
+}
+</style>
+
+
+</head>
+<body>
+	
+
+	<form action="addproduct" method="POST" id="myform">{% csrf_token %}
+	<button class="addbtn" onclick="first()">ADD_PRODUCTS</button>
+	<div class="limiter">
+		<div class="container-table100">
+
+			<div class="wrap-table100">
+               
+				<h1 style="text-align:center;">MOBILE & TABLET</h1>  
+				<div class="table100 ver1">
+					<div class="table100-firstcol">
+
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">CATEGORY</th></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="row100 body">
+									<td class="cell100 column1">Brandon
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+					<div class="wrap-table100-nextcols js-pscroll">
+						<div class="table100-nextcols">
+							<table>
+								<thead>
+									<tr class="row100 head">
+										<th class="cell100 column2">EDIT</th>
+										<th class="cell100 column3">DELETE</th>
+										<th class="cell100 column10">BRAND</th>
+										<th class="cell100 column4">PRODUCT NAME</th>
+										<th class="cell100 column5">ORGINAL PRICE</th>
+										<th class="cell100 column6">CURRENT PRICE</th>
+										<th class="cell100 column7">AVAILABLE STOCK</th>
+										<th class="cell100 column8">RATING</th>
+										<th class="cell100 column9">PROCESSOR</th>
+										<th class="cell100 column10">SELFIE CAMERA</th>
+										<th class="cell100 column11">BACK CAMERA</th>
+										<th class="cell100 column12">RAM</th>
+										<th class="cell100 column13">INTERNAL MEMORY</th>
+										<th class="cell100 column14">COLOR</th>
+										<th class="cell100 column15">BATTERY</th>
+
+									
+										
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="row100 body" id="1">
+										
+										<td class="cell100 column2"><button onclick="editbtn('1')">EDIT</button></td>
+										<td class="cell100 column3"><button>DELETE</button></td>
+										<td class="cell100 column10">SAMSUNG</td>
+										<td class="cell100 column4">REDMI NOTE 9 PRO OF THE TOMMOROW</td>
+										<td class="cell100 column5">1000000</td>
+										<td class="cell100 column6">3000000</td>
+										<td class="cell100 column7">1000000</td>
+										<td class="cell100 column8">4.555</td>
+										<td class="cell100 column9">QUALCOM SNAPDRAGON OF MEDIUM</td>
+										<td class="cell100 column10">48MP-56MP234</td>
+										<td class="cell100 column11">48MP-56MP234</td>
+										<td class="cell100 column12">641GB</td>
+										<td class="cell100 column13">642GB</td>
+										<td class="cell100 column14">PURPLE PRO GREEN</td>
+										<td class="cell100 column15">50000  MAH</td>
+									</tr>
+
+								
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100"><h1 style="text-align:center;">ACCESSORIES</h1>
+                 
+				<div class="table100 ver1">
+					<div class="table100-firstcol">
+
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">CATEGORY</th></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="row100 body">
+									<td class="cell100 column1">Brandon
+								</tr>
+								
+							
+							</tbody>
+						</table>
+					</div>
+					
+					<div class="wrap-table100-nextcols js-pscroll">
+						<div class="table100-nextcols">
+							<table>
+								<thead>
+									<tr class="row100 head">
+										<th class="cell100 column2">EDIT</th>
+										<th class="cell100 column3">DELETE</th>
+										<th class="cell100 column10">BRAND</th>
+										<th class="cell100 column4">PRODUCT NAME</th>
+										<th class="cell100 column5">ORGINAL PRICE</th>
+										<th class="cell100 column6">CURRENT PRICE</th>
+										<th class="cell100 column7">AVAILABLE STOCK</th>
+										<th class="cell100 column8">RATING</th>
+										<th class="cell100 column4">TYPE</th>
+										<th class="cell100 column4">FEATURES</th>
+										<th class="cell100 column4">INTERFACES</th>
+										<th class="cell100 column5">CAPACITY</th>
+										<th class="cell100 column4">CONNECTIVITY</th>
+										<th class="cell100 column5">SIZE</th>
+										
+										
+									
+										
+										
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr class="row100 body" id="1">
+										<td class="cell100 column2"><button onclick="editbtn('2')">EDIT</button></td>
+										<td class="cell100 column3"><button>DELETE</button></td>
+										<td class="cell100 column10">REDMI</td>
+										<td class="cell100 column4">REDMI NOTE 9 PRO MAX</td>
+										<td class="cell100 column5">3000000</td>
+										<td class="cell100 column6">1000000</td>
+										<td class="cell100 column7">4555</td>
+										<td class="cell100 column8">4.5</td>
+										<td class="cell100 column4">JUST TRYING OF BUMRAH</td>
+										<td class="cell100 column4">JUST TRYING OF BUMRAH</td>
+										<td class="cell100 column4">JUST TRYING OF BUMRAH</td>
+										<td class="cell100 column5">5000MAH</td>
+										<td class="cell100 column4">JUST TRYING OF BUMRAH</td>
+										<td class="cell100 column5">5000MAH</td>
+									</tr>
+
+									
+
+							
+
+								
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100"><h1 style="text-align:center;">COMPUTER & LAPTOP</h1><br>
+                 
+				<div class="table100 ver1">
+					<div class="table100-firstcol">
+
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">CATEGORY</th></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="row100 body">
+									<td class="cell100 column1">Brandon</td>
+								</tr>
+								
+							
+							</tbody>
+						</table>
+					</div>
+					
+					<div class="wrap-table100-nextcols js-pscroll">
+						<div class="table100-nextcols">
+							<table>
+								<thead>
+									<tr class="row100 head">
+										<th class="cell100 column2">EDIT</th>
+										<th class="cell100 column3">DELETE</th>
+										<th class="cell100 column10">BRAND</th>
+										<th class="cell100 column4">PRODUCT NAME</th>
+										<th class="cell100 column5">ORGINAL PRICE</th>
+										<th class="cell100 column6">CURRENT PRICE</th>
+										<th class="cell100 column7">AVAILABLE STOCK</th>
+										<th class="cell100 column8">RATING</th>
+										<th class="cell100 column8">RAM</th>
+										<th class="cell100 column10">HARDDISK CAPACITY</th>
+										<th class="cell100 column4">PROCESSOR</th>
+										<th class="cell100 column4">OS</th>
+										
+										
+									
+										
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="row100 body" id="1">
+										<td class="cell100 column2"><button onclick="editbtn('3')">EDIT</button></td>
+										<td class="cell100 column3"><button>DELETE</button></td>
+										<td class="cell100 column10">SAMSUNG</td>
+										<td class="cell100 column4">REDMI NOTE 9 PRO OF THE TOMMOROW</td>
+										<td class="cell100 column5">1000000</td>
+										<td class="cell100 column6">3000000</td>
+										<td class="cell100 column7">1000000</td>
+										<td class="cell100 column8">4.555</td>
+										<td class="cell100 column8">25GB</td>
+										<td class="cell100 column10">4.555</td>
+										<td class="cell100 column4">MEDIATEK HELLIO G80T</td>
+										<td class="cell100 column4">WINDOWS 7 ULTIMATE</td>
+									</tr>
+
+								
+
+								
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100"><h1 style="text-align:center;">TV</h1>
+			
+				<div class="table100 ver1">
+					<div class="table100-firstcol">
+
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">BRAND</th></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="row100 body">
+									<td class="cell100 column1">Brandon
+								</tr>
+								
+                         </tbody>
+						</table>
+					</div>
+					
+					<div class="wrap-table100-nextcols js-pscroll">
+						<div class="table100-nextcols">
+							<table>
+								<thead>
+									<tr class="row100 head">
+										<th class="cell100 column2">EDIT</th>
+										<th class="cell100 column3">DELETE</th>
+										<th class="cell100 column4">PRODUCT NAME</th>
+										<th class="cell100 column5">ORGINAL PRICE</th>
+										<th class="cell100 column6">CURRENT PRICE</th>
+										<th class="cell100 column7">AVAILABLE STOCK</th>
+										<th class="cell100 column8">RATING</th>
+										<th class="cell100 column15">SCREEN SIZE</th>
+										<th class="cell100 column14">RESOLUTION</th>
+										<th class="cell100 column13">SCREEN TYPE</th>
+										<th class="cell100 column12">SMART TV</th>										
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="row100 body" id="1">
+										
+										<td class="cell100 column2"><button onclick="editbtn('4')">EDIT</button></td>
+										<td class="cell100 column3"><button>DELETE</button></td>
+										<td class="cell100 column4">REDMI NOTE 9 PRO OF THE TOMMOROW</td>
+										<td class="cell100 column5">1000000</td>
+										<td class="cell100 column6">3000000</td>
+										<td class="cell100 column7">1000000</td>
+										<td class="cell100 column8">4.555</td>
+										<td class="cell100 column15">162 INCH</td>
+										<td class="cell100 column14">HD READY</td>
+										<td class="cell100 column13">QLED</td>
+										<td class="cell100 column12">YES</td>
+									</tr>
+
+								
+                            </tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100"><h1 style="text-align:center;">APPLIANCES</h1>
+				
+				<div class="table100 ver1">
+					<div class="table100-firstcol">
+
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">CATEGORY</th></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="row100 body">
+									<td class="cell100 column1">Brandon
+								</tr>
+								
+                         </tbody>
+						</table>
+					</div>
+					
+					<div class="wrap-table100-nextcols js-pscroll">
+						<div class="table100-nextcols">
+							<table>
+								<thead>
+									<tr class="row100 head">
+										<th class="cell100 column2">EDIT</th>
+										<th class="cell100 column3">DELETE</th>
+										<th class="cell100 column10">BRAND</th>
+										<th class="cell100 column4">PRODUCT NAME</th>
+										<th class="cell100 column5">ORGINAL PRICE</th>
+										<th class="cell100 column6">CURRENT PRICE</th>
+										<th class="cell100 column7">AVAILABLE STOCK</th>
+										<th class="cell100 column8">RATING</th>
+										<th class="cell100 column4">TYPE</th>
+										<th class="cell100 column10">CAPACITY</th>
+										<th class="cell100 column10">SIZE</th>
+										<th class="cell100 column4">FEATURES</th>
+																			
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="row100 body" id="1">
+										<td class="cell100 column2" onclick="editbtn('5')"><button>EDIT</button></td>
+										<td class="cell100 column3"><button>DELETE</button></td>
+										<td class="cell100 column10">REDMI</td>
+										<td class="cell100 column4">REDMI NOTE 9 PRO</td>
+										<td class="cell100 column5">3000000</td>
+										<td class="cell100 column6">1000000</td>
+										<td class="cell100 column7">44555</td>
+										<td class="cell100 column8">4.56</td>
+										<td class="cell100 column4">LARGEST MEGA START</td>
+										<td class="cell100 column10">50000MAH</td>
+										<td class="cell100 column10">5000MAH</td>
+										<td class="cell100 column4">LARGEST MEGA START</td>
+									</tr>
+									
+
+									
+									
+
+                            </tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+<!--===============================================================================================-->	
+	<script src="{% static 'viewproduct/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'viewproduct/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'viewproduct/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'viewproduct/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'viewproduct/vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+
+			$(this).on('ps-x-reach-start', function(){
+				$(this).parent().find('.table100-firstcol').removeClass('shadow-table100-firstcol');
+			});
+
+			$(this).on('ps-scroll-x', function(){
+				$(this).parent().find('.table100-firstcol').addClass('shadow-table100-firstcol');
+			});
+
+		});
+
+		
+
+
+		function editbtn(b)
+		{
+			alert(b);
+			var rowId = event.target.parentNode.parentNode.id; 
+              alert(rowId);
+               var data =  document.getElementById(rowId).querySelectorAll(".row-data");  
+              
+ 
+                var name = data[0].innerHTML;   alert("ji"); 
+                var age = data[1].innerHTML;   alert(name); 
+  
+                alert(name); 
+            } 
+
+
+            function first()
+            {
+				alert("ji");
+				
+            	document.getElementById("myform").action=addproduct;
+				document.getElementById("myform").submit();
+
+            }
+		
+		
+		
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'viewproduct/viewproduct/js/main.js' %}"></script>
+</form>
+</body>
+</html>

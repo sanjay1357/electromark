@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - &lt;Table&gt; Responsive</title>
+  <link rel="stylesheet" href="{% static 'confirmorder/css/style.css' %}">
+
+</head>
+<body>
+	<style type="text/css">
+		.hi{
+			color:orange;
+		}
+		.addbtn{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+  margin-left:1px;
+}
+.addbtn:hover {
+  background-color: #008CBA;
+  color: white;
+}
+	</style>
+<!-- partial:index.partial.html --><br>
+<h2 class="hi" style="font-size:30px;"><strong>CONFIRM ORDER</strong></h2>
+
+<form action="cart/payment" method="POST"> {% csrf_token %}  
+<table class="container">
+	
+	<tbody>
+		{% for mob in mobiles %}
+		<tr>
+			<td>PRODUCT NAME</td>
+			<td>{{mob.name}}</td>
+			
+		</tr>
+	  {% endfor %}
+
+     {% for mob in tv %}
+		<tr>
+			<td>PRODUCT NAME</td>
+			<td>{{mob.name}}</td>
+			
+		</tr>
+	  {% endfor %}
+
+
+	  {% for mob in pc %}
+		<tr>
+			<td>PRODUCT NAME</td>
+			<td>{{mob.name}}</td>
+			
+		</tr>
+	  {% endfor %}
+
+
+	  {% for mob in accessories %}
+		<tr>
+			<td>PRODUCT NAME</td>
+			<td>{{mob.name}}</td>
+			
+		</tr>
+	  {% endfor %}
+
+	    {% for mob in appliances %}
+		<tr>
+			<td>PRODUCT NAME</td>
+			<td>{{mob.name}}</td>
+			
+		</tr>
+	  {% endfor %}
+
+
+		<tr>
+			<td>TOTAL PRICE</td>
+			<td>{{price}}</td>
+
+		</tr>
+
+        <tr>
+			<td>FATHER'S NAME</td>
+			<td>{{add.father_name}}</td>
+	   </tr>
+
+	    <tr>
+			<td>ADDRESS 1</td>
+			<td>{{add.address1}}</td>
+	   </tr>
+
+	    <tr>
+			<td>ADDRESS 2</td>
+			<td>{{add.address2}}</td>
+	   </tr>
+
+        
+	    <tr>
+			<td>LANDMARK</td>
+			<td>{{add.landmark}}</td>
+	   </tr>
+
+
+	    <tr>
+			<td>DISTRICT</td>
+			<td>{{add.district}}</td>
+	   </tr>
+
+
+	    <tr>
+			<td>PINCODE</td>
+			<td>{{add.pincode}}</td>
+	   </tr>
+
+        
+	   <tr>
+			<td>PAYMENT MODE</td>
+
+<td><input type="radio" name="mode" id="cod" value="cod" checked >&emsp;CASH ON DELIVERY&emsp;<input type="radio" name="mode" id="op" value="op">&emsp;ONLINE PAYMENT</td>
+			
+		</tr>
+
+        <tr>
+
+			<td>PLACE ORDER</td>
+<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button class="addbtn" id="order" type="submit">CLICK HERE</button></td>
+		</tr>
+
+	</tbody>
+</table>
+
+</form>
+<!-- partial -->
+  <script  src="{% static 'confirmorder/js/script.js' %}"></script>
+  <script type="text/javascript"></script>
+
+  <script type="text/javascript">
+
+  </script>
+
+</body>
+</html>

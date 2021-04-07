@@ -1,0 +1,454 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Register</title>
+
+    <!-- Icons font CSS-->
+    <link href="{% static 'register/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'register/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'register/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'register/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'register/css/main.css' %}" rel="stylesheet" media="all">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body >
+    <div >
+     <center><span class="login100-form-logo">
+                         <img src="{% static 'register/images/hi.png' %}" class="rounded-circle" alt="Cinque Terre" width="120" height="120">
+                    </span></center>
+        <div class="wrapper wrapper--w680">
+           
+            <div class="card card-4">
+ 
+                <div class="card-body">
+                    
+                    <center><h2 class="title" style="text-shadow: 2px 2px 4px #000000;">Registration Form</h2></center>
+                    
+                                                                                                                                                               
+                                             <form id="myform" action="accountcreate" method="POST">                                                                                                                      
+
+                                                {% csrf_token %}                         
+
+
+                                                                                                                                                     
+
+
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">first name</label>
+<input type="text" class="input--style-4" name="first_name" id="first_name" onkeypress="return (event.charCode > 64 && 
+event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">last name</label>
+<input class="input--style-4" type="text" name="last_name" id="last_name" onkeypress="return (event.charCode > 64 && 
+event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Birthday</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker" type="text" name="birthday" id="birthday">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Gender</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Male
+                                            <input type="radio" checked="checked" name="gender" id="gender" value="Male">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Female
+                                            <input type="radio" name="gender" id="gender" value="Female">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Email</label>
+                                    <input class="input--style-4" type="email" name="email" id="email">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Phone Number</label>
+    <input type="text"  class="input--style-4" name="phone" id="phone" onkeypress='return restrictAlphabets(event)' maxlength="10">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                            <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Password</label>
+                                    <input class="input--style-4" type="password" name="passw" id="passw">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Confirm Password</label>
+                                    <input class="input--style-4" type="password" name="conpassw" id="conpassw">
+                                </div>
+                            </div>
+                                       
+                        </div>
+
+
+
+
+
+                        
+
+                    
+
+
+
+
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">FATHER'S NAME</label>
+                                        <input class="input--style-4" type="text" name="father" id="father">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">ADDRESS 1</label>
+                                        <input class="input--style-4" type="text" name="add1" id="add1">
+                                    </div>
+                                </div>
+                                           
+                            </div>
+
+
+
+                        
+                          <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">ADDRESS 2</label>
+                                        <input class="input--style-4" type="text" name="add2" id="add2" required>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">LANDMARK</label>
+                                        <input class="input--style-4" type="text" name="landmark" id="landmark">
+                                    </div>
+                                </div>
+                                           
+                            </div>
+
+
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">PINCODE</label>
+                                        <input class="input--style-4" type="text" name="pincode" id="pincode" onkeypress='return restrictAlphabets(event)' maxlength="6" >
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">DISTRICT</label>
+                                        <input class="input--style-4" type="text" name="district" id="district">
+                                    </div>
+                                </div>
+                                           
+                            </div>
+
+
+
+
+
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">Email OTP</label>
+        <input type="text" class="input--style-4" name="otp" id="otp" onkeypress='return restrictAlphabets(event)' maxlength="4">
+                                    </div>
+                                </div>
+    
+                                <div class="col-2">
+                                 <div class="p-t-15">
+                        <button id="mybtn" class="btn btn--radius-2 btn--green">&emsp;&emsp;Generate OTP&emsp;&emsp;&emsp;</button>
+                                 </div>
+    
+                                </div>
+    
+                               
+                                </div>
+                            
+
+
+                           
+
+
+                        <div class="p-t-15">
+                            <center><button class="btn btn--radius-2 btn--blue" type="submit" id="mybtn1" name="mybtn1">Submit</button></center>
+                        </div>
+                   
+
+                 </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+ 
+
+<script type="text/javascript">
+    var j=10;
+    var check;
+    var ci=1;
+    var original;
+    var o=0;
+    $(document).ready(function() {
+    $("#mybtn").click(function(event) {
+      event.preventDefault();
+      
+   ci=1;
+   var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+   a=document.getElementById("first_name");
+   b=document.getElementById("last_name");
+   c=document.getElementById("birthday");
+   d=document.getElementById("email");
+   e=document.getElementById("phone");
+   f=document.getElementById("passw");
+   g=document.getElementById("conpassw");
+
+   
+   if (a.value==="")
+   {
+    a.placeholder="Field Must Not Be An Empty";
+    ci=0;
+   }
+   if (b.value==="")
+   {
+    b.placeholder="Field Must Not Be An Empty";
+    ci=0;
+   }
+   if(c.value==="")
+   {
+      c.placeholder="Please Choose Your D.O.B"; 
+      ClientRect=0;
+   }
+   if (reg.test(d.value) == false) 
+   {
+       d.placeholder="Enter Valid Email ID"; 
+       d.value="";
+       ci=0;
+   }
+   if(e.value.length != 10)
+   {
+      e.placeholder="Enter Valid Phone Number"; 
+      e.value="";
+      ci=0;
+   }
+   if(f.value != g.value)
+   {
+     alert("Password And Confirm Password Not Match");
+     f.value="";
+     g.value="";
+     ci=0;
+   }
+
+   if(f.value.length < 8)
+   {
+      f.placeholder="Minimum 8 Characters Required"; 
+      f.value="";
+      ci=0;
+   }
+
+
+
+
+     if(ci==1)
+     {
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+        var first_name = $('#first_name').val();
+        $.ajax({
+    url: '/otpgenerate',
+    type: 'GET',
+    data: {
+        'email':email,
+        'phone':phone,
+        'first_name' :first_name,
+    },
+    success: function(response){
+      alert("otp generated");
+      if(response =="Phone Number Already Exists")
+      {
+        alert("Phone Number Already Exists");
+        e.value="";
+      }
+      else if(response == "Email Already Exists")
+      {
+        alert("Email Already Exists");
+        d.value="";
+      }
+      else if(response == "Phone Number And Email Already Exists")
+      {
+        alert("Phone Number And Email Already Exists");
+        d.value="";e.value="";
+      }
+      else
+      {
+          o=1;
+          document.getElementById("first_name").disabled="true";
+          document.getElementById("birthday").disabled="true";
+          document.getElementById("email").disabled="true";
+          document.getElementById("phone").disabled="true";
+          document.getElementById("last_name").disabled="true";
+          document.getElementById("passw").disabled="true";
+          document.getElementById("conpassw").disabled="true";
+          document.getElementById("gender").disabled="true";
+          alert("OTP SENDED TO YOUR MAIL ID");
+          alert(response);
+          myvar=setInterval(myFunction, 1000);
+          original=response;
+      }
+
+    }
+  });
+     
+     }
+     
+});
+    });
+
+
+    function myFunction()
+    {
+     document.getElementById("mybtn").disabled =true;
+     j=j-1;
+     document.getElementById("mybtn").innerHTML ="&emsp;&emsp;&emsp;"+j+" SECONDS&emsp;&emsp;&emsp;";
+ 
+     if(j==0)
+     {
+        clearInterval(myvar);
+        document.getElementById("mybtn").innerHTML ="&emsp;&emsp;&emsp;Resend OTP&emsp;&emsp;&emsp;";
+        document.getElementById("mybtn").disabled =false;
+        j=10;
+     }
+    
+   
+}
+
+
+  
+
+document.querySelector('#mybtn1').addEventListener('click', function(event) 
+{ 
+   event.preventDefault();
+   alert(original);
+   tem=document.getElementById("otp").value;
+   if(o==1)  
+   {
+      if(tem.toString()==original.toString())
+      {
+          alert("SUPER...CREATED SUCESSFULLY");
+          
+          
+          var u1=document.getElementById("father").value;
+          var u2=document.getElementById("add1").value;
+          var u3=document.getElementById("add2").value;
+          var u4=document.getElementById("landmark").value;
+          var u5=document.getElementById("district").value;
+          var u6=document.getElementById("pincode").value;
+          var u7=u6.length;
+
+          if(u1==""||u2==""||u3==""||u4==""||u5==""||u7<6)
+          alert("ENTER CORRECT ADDRESS")
+          else
+          {
+            document.getElementById("first_name").disabled=false;
+          document.getElementById("birthday").disabled=false;
+          document.getElementById("email").disabled=false;
+          document.getElementById("phone").disabled=false;
+          document.getElementById("last_name").disabled=false;
+          document.getElementById("passw").disabled=false;
+          document.getElementById("conpassw").disabled=false;
+          document.getElementById("gender").disabled=false;
+          document.getElementById("myform").submit();
+          }
+          
+      }
+      else
+      {
+        alert("enter correct otp");
+        tem.value="";
+      }
+   }
+
+});
+
+
+
+  function restrictAlphabets(e) {
+             var x = e.which || e.keycode;
+             if ((x >= 48 && x <= 57))
+                 return true;
+             else
+                 return false;
+         }
+
+
+</script>
+
+
+
+    <!-- Jquery JS-->
+    <script src="{% static 'register/vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Vendor JS-->
+    <script src="{% static 'register/vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'register/vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{% static 'register/vendor/datepicker/daterangepicker.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'register/js/global.js' %}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
+
+
+
+

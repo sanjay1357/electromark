@@ -1,0 +1,536 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ashion Template">
+    <meta name="keywords" content="Ashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ashion | Template</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'description/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'description/css/font-awesome.min.css' %}" type="text/css">
+  
+    <link rel="stylesheet" href="{% static 'description/css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'description/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'description/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'description/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'description/css/style.css' %}" type="text/css">
+
+
+
+ <link rel="stylesheet" href="{% static 'description/new/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'description/new/css/all.css' %}">
+  <link rel="stylesheet" href="{% static 'description/new/css/style.css' %}">
+
+<style>
+li 
+{
+  list-style-image: url('sqpurple.gif');
+}
+</style>
+
+
+</head>
+
+<body>
+    <br>
+   <h3 style="text-align:center;color:blue">{{category}}</h3>
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__left product__thumb nice-scroll">
+                            
+                            <a class="pt" href="#product-2">
+                                <img src="{{obj.img1.url}}" alt="jo" >
+                            </a><br><br><br><br><br>
+                            <a class="pt" href="#product-3">
+                                <img src="{{obj.img2.url}}" alt="" >
+                            </a>
+                                                                                                                                            
+                        </div>
+                        <div class="product__details__slider__content">
+                            <div class="product__details__pic__slider owl-carousel">
+                                                                                                                
+    <img data-hash="product-2" class="product__big__img" src="{{obj.img1.url}}" alt="" height="500px">    
+    <img data-hash="product-3" class="product__big__img" src="{{obj.img2.url}}" alt="" height="500px" width="400px">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="product__details__text"><br>
+                        <h3 style="color:brown;">{{obj.name}}</h3><br>
+
+
+                        {% if category == "ACCESSORIES" %}
+
+    <h3 style="color:green;">Brand :{{obj.accbrand}}</h3><br>
+
+    {% elif category == "APPLIANCES" %}
+
+    <h3 style="color:green;">Brand :{{obj.appbrand}}</h3><br>
+
+    {% else %}
+<h3 style="color:green;">Brand :{{obj.brand}}</h3><br>
+{% endif %}
+
+
+
+
+                        <div class="rating">
+     <p style="font-size:250%;color:orange">****</p>
+                            
+                        </div>
+    <div class="product__details__price">RS {{obj.curprice}} &emsp;<del style="color:">RS {{obj.oriprice}}</del></div>
+                       
+                        <div class="product__details__button">
+                            <div class="quantity">
+                                <span><bold>Quantity:</bold></span>
+                                <div class="pro-qty">
+                                    <input type="text" value="1" min="1" id="quantity">
+                                </div>
+                            </div>
+                            <ul>
+                               <br>
+                               
+                               &emsp;
+                 <button class="cart-btn" id="cart" onmouseover="addcart()">ADD TO CART</button>
+                              <button class="cart-btn" id="buynow" onmouseover="buynow()">BUY NOW</button>
+                         
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Description</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Specification</a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <h6>Description</h6>
+                                <p class="list-group-item list-group-item-primary"><strong>{{obj.description}}</strong></p>
+                            </div>
+
+
+
+
+
+{% if category == "MOBILES" %}
+
+
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-success">RAM</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-success">{{obj.ram}} GB</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-secondary">INTERNAL</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-secondary">{{obj.internal}} GB</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-info">COLOR</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-info">{{obj.color}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-warning">PRIMARY CAMERA</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-warning">{{obj.pricamera}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5  class="list-group-item list-group-item-danger">SECONDARY CAMERA</h5>
+                  </td>
+                  <td>
+                    <h5  class="list-group-item list-group-item-danger">{{obj.seccamera}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-primary">BATTERY</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-primary">{{obj.battery}} MAh</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-dark">PROCESSOR</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-dark">{{obj.processor}}</h5>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+
+
+{% endif %}
+
+
+{% if category == "TV" %}
+
+
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-success">SCREEN SIZE</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-success">{{obj.screensize}} inch</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-secondary">RESOLUTION</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-secondary">{{obj.resolution}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-info">SCREEN TYPE</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-info">{{obj.screentype}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-warning">SMART TV</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-warning">{{obj.smarttv}}</h5>
+                  </td>
+                </tr>
+               
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+
+
+{% endif %}
+
+
+
+{% if category == "PC" %}
+
+
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-success">RAM</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-success">{{obj.pcram}} GB</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-secondary">HARD DISK</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-secondary">{{obj.pcharddisk}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-dark">SSD</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-dark">{{obj.pcssd}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-danger">PROCESSOR</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-danger">{{obj.pcprocessor}}</h5>
+                  </td>
+                </tr>
+               
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+
+
+{% endif %}
+
+
+
+
+{% if category == "ACCESSORIES" %}
+
+
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-dark">TYPE</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-dark">{{obj.acctype}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-primary">FEATURES</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-primary">{{obj.accfeatures}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-danger">INTERFACES</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-danger">{{obj.accinterfaces}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-warning">CAPACITY</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-warning">{{obj.acccapacity}}</h5>
+                  </td>
+                </tr>
+                 <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-info">CONNECTIVITY</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-info">{{obj.accconnectivity}}</h5>
+                  </td>
+                </tr>
+               
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+
+
+{% endif %}
+
+
+{% if category == "APPLIANCES" %}
+
+
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-dark">TYPE</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-dark">{{obj.apptype}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-primary">FEATURES</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-primary">{{obj.appfeatures}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-danger">SIZE</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-danger">{{obj.appsize}}</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5 class="list-group-item list-group-item-warning">CAPACITY</h5>
+                  </td>
+                  <td>
+                    <h5 class="list-group-item list-group-item-warning">{{obj.appcapacity}}</h5>
+                  </td>
+                </tr>
+                 
+               
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+
+
+{% endif %}
+
+
+
+
+
+
+                                
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+    <!-- Search End -->
+ 
+    <!-- Js Plugins -->
+    <script src="{% static 'description/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'description/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'description/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'description/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'description/js/mixitup.min.js' %}"></script>
+    <script src="{% static 'description/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'description/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'description/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'description/js/jquery.nicescroll.min.js' %}"></script>
+    <script src="{% static 'description/js/main.js' %}"></script>
+
+
+
+  <script src="{% static 'description/new/js/jquery-1.12.1.min.js' %}"></script>
+  <script src="{% static 'description/newjs/popper.min.js' %}"></script>
+  <script src="{% static 'description/newjs/bootstrap.min.js' %}"></script>
+  <script src="{% static 'description/newjs/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'description/newjs/jquery.nice-select.min.js' %}"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+
+	
+    function buynow()
+    {
+    var stock = "{{obj.stock}}";
+    
+    var quantity=document.getElementById("quantity").value;
+    var calc=stock-quantity;
+    if(stock==0)
+    {     
+        alert("THIS PRODUCT IS OUT OF STOCK");
+        document.getElementById("buynow").disabled=true;
+    }
+    else if(calc<0)
+        {
+            alert("SORRY ONLY "+stock+" STOCKS ARE AVAILABLE");
+        }
+     else if(quantity==0)
+     {
+     	alert("QUANTITY IS NOT LESS THAN 1")
+     }
+    else
+    {
+
+    	
+        
+    	location.replace("http://127.0.0.1:8000/buynow/{{category}}/{{obj.id}}");
+    }
+}
+
+
+function addcart()
+{
+	var stock = "{{obj.stock}}";
+    if(stock<=0)
+    {
+    	alert("THIS PRODUCT IS OUT OF STOCK");
+        document.getElementById("buynow").disabled=true;
+    }
+    else
+    {
+	alert({{user.id}});
+	var url=window.location.href;
+	var urlsplit=url.split("/");
+	var category1=urlsplit[5];
+	location.replace("http://127.0.0.1:8000/cart/{{user.id}}/{{category}}/{{obj.id}}");
+}
+}
+   
+</script>
+
+
+</body>
+
+</html>

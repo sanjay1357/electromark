@@ -1,0 +1,172 @@
+{% load static %}
+{% static "images" as baseUrl %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Fashion | Teamplate</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'allproduct/assets/img/favicon.ico' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- CSS here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/progressbar_barfiller.css' %}">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/gijgo.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/animated-headline.css' %}">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'allproduct/assets/css/style.css' %}">
+    <style>
+.checked {
+  color:red;
+}
+</style>
+</head>
+<body class="full-wrapper" style="background-color:white"><br><br><center style="color:red;">YOUR SEARCH RESULTS</center>
+    <!-- ? Preloader Start --><br><br>
+</center>
+      
+    {% csrf_token %}
+                   <div class="row">
+                    <!--? Left content -->
+                   
+                    <!--?  Right content --><center>
+                    <div class="col-xl-9 col-lg-9 col-md-8 ">
+                        <!--? New Arrival Start -->
+                        <div class="new-arrival new-arrival2">
+                            <div class="row">
+
+{% for mob in mobiles %}
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                    <div class="single-new-arrival mb-50 text-center">
+                                        <div class="popular-img">
+                                            <img src="{{mob.img1.url}}" alt="" height="350px">
+                                           
+                                        </div>
+                                        <div class="popular-caption">
+
+                 {% if category == "TV" %}
+                <h3 style="color:blue;"><a href="allproduct/description/{{category}}/{{mob.id}}">{{mob.name}}</a></h3>
+                {% elif category == 'MOBILES' %}
+                 <h3 style="color:blue;"><a href="allproduct/description/{{mob.category}}/{{mob.id}}">{{mob.name}}</a></h3>
+
+                {% elif category == 'PC' %}
+                 <h3 style="color:blue;"><a href="allproduct/description/{{mob.category}}/{{mob.id}}">{{mob.name}}</a></h3>
+
+                 {% elif category == 'ACCESSORIES' %}
+                 <h3 style="color:blue;"><a href="allproduct/description/{{mob.subcategory1}}/{{mob.id}}">{{mob.name}}</a></h3>
+                 {% elif category == 'APPLIANCES' %}
+                 <h3 style="color:blue;"><a href="allproduct/description/{{mob.subcategory2}}/{{mob.id}}">{{mob.name}}</a></h3>
+                 {% endif %}
+
+
+                                        <span style="color:green;">RS.{{mob.curprice}}&emsp;<del style="color:red;">{{mob.oriprice}}</del></span>
+                                        <span style="color:brown;">{{mob.discount}}% off</span>
+                                       
+                                     {% if mob.rating == 1 %}
+                                       <p style="font-size:250%;color:orange">*</p>
+
+
+                                    {% elif mob.rating == 2 %}
+                                       <p style="font-size:250%;color:orange">**</p>
+
+                                    {% elif mob.rating == 3 %}
+                                       <p style="font-size:250%;color:orange">***</p>
+
+                                    {% elif mob.rating == 4 %}
+                                       <p style="font-size:250%;color:orange">****</p>
+
+                                    {% else %}
+                                       <p style="font-size:250%;color:orange">*****</p>
+                                     {% endif %}
+                                         
+                                       
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+                           
+<!-- Button -->{% endfor %}
+</center>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="back-top" >
+    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+</div>
+
+
+<!-- JS here -->
+<!-- Jquery, Popper, Bootstrap -->
+<script src="{% static 'allproduct/assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/popper.min.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/bootstrap.min.js' %}"></script>
+
+<!-- Slick-slider , Owl-Carousel ,slick-nav -->
+<script src="{% static 'allproduct/assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/slick.min.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/jquery.slicknav.min.js' %}"></script>
+
+<!-- One Page, Animated-HeadLin, Date Picker -->
+<script src="{% static 'allproduct/assets/js/wow.min.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/animated.headline.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/jquery.magnific-popup.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/gijgo.min.js' %}"></script>
+
+<!-- Nice-select, sticky,Progress -->
+<script src="{% static 'allproduct/assets/js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/jquery.sticky.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/jquery.barfiller.js' %}"></script>
+
+<!-- counter , waypoint,Hover Direction -->
+<script src="{% static 'allproduct/assets/js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/waypoints.min.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/hover-direction-snake.min.js' %}"></script>
+
+<!-- contact js -->
+<script src="{% static 'allproduct/assets/js/contact.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/jquery.form.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/mail-script.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+<!-- Jquery Plugins, main Jquery -->    
+<script src="{% static 'allproduct/assets/js/plugins.js' %}"></script>
+<script src="{% static 'allproduct/assets/js/main.js' %}"></script>
+
+
+
+
+<script type="text/javascript">
+    
+    
+   
+
+</script>
+
+
+</center>
+</body>
+</html>

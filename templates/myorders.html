@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+  <link rel="stylesheet" href="{% static 'myorders/css/style.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <br><h3 style="color:brown;"><center>MY ORDERS</center></h3>
+<div class="container">
+    <article class="card">
+       
+        <div class="card-body">{% for orders in order %}
+            <h4 class="p-3 mb-2 bg-warning text-dark"><center>{{orders.name}}</center></h4>
+            <article class="card">
+                <div class="card-body row">
+                  
+        <div class="col"> <strong style="color:blue;">Shipping by:</strong> <br><strong>electromark delivery boy</strong></div>
+                    <div class="col"> <strong style="color:blue;">Status:</strong> <br><strong>{{orders.status}}</strong> </div>
+                    <div class="col"> <strong style="color:blue;">Tracking id:</strong> <br><strong>{{orders.tracking}}</strong></div>
+                    <div class="col"> <strong style="color:blue;">Ordered time:</strong> <br><strong>{{orders.times}}</div>
+                </div>
+            </article>
+            
+
+           {% if orders.status == "ordered" %}
+
+
+            <div class="track">
+<div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text" style="color:green;"><strong>Order confirmed</strong></span> </div>
+<div class="step"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text" style="color:green;"><strong>On the way</strong></span> </div>
+<div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text" style="color:green;"><strong>Delivered</strong></span> </div>
+            </div>
+
+{% endif %}
+
+
+
+
+
+    {% if orders.status == "ontheway" %}
+
+
+            <div class="track">
+<div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text" style="color:green;"><strong>Order confirmed</strong></span> </div>
+<div class="step active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text" style="color:green;"><strong>On the way</strong></span> </div>
+<div class="step"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text" style="color:green;"><strong>Delivered</strong></span> </div>
+            </div>
+
+{% endif %}
+
+
+{% if orders.status == "delivered" %}
+
+
+            <div class="track">
+<div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text" style="color:green;"><strong>Order confirmed</strong></span> </div>
+<div class="step active"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text" style="color:green;"><strong>On the way</strong></span> </div>
+<div class="step active"> <span class="icon"> <i class="fa fa-box"></i> </span> <span class="text" style="color:green;"><strong>Delivered</strong></span> </div>
+            </div>
+
+{% endif %}
+
+
+
+
+
+
+
+           
+        </div><br><br>{% endfor %}
+    </article>
+</div>
+
+</body>

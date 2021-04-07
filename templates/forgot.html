@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Register</title>
+
+    <!-- Icons font CSS-->
+    <link href="{% static 'register/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'register/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'register/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'register/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'register/css/main.css' %}" rel="stylesheet" media="all">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body >
+    <div >
+     <center><span class="login100-form-logo">
+                         <img src="{% static 'register/images/hi.png' %}" class="rounded-circle" alt="Cinque Terre" width="120" height="120">
+                    </span></center>
+        <div class="wrapper wrapper--w680">
+           
+            <div class="card card-4">
+ 
+                <div class="card-body">
+                    
+                    <center><h2 class="title" style="text-shadow: 2px 2px 4px #000000;">FORGOT PASSWORD</h2></center>
+                    
+                                                                                                                                                               
+                                             <form id="myform" action="pwdchange" method="POST" name="myform">                                                                                                                      
+
+                                                {% csrf_token %}                         
+
+
+                                                                                                                                                     
+
+
+                                                
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Email</label>
+                                    <input class="input--style-4" type="email" name="email" id="email" required>
+                                </div>
+                            </div>
+                              <div class="col-2">
+                                 <div class="p-t-15">
+        <button id="mybtn" class="btn btn--radius-2 btn--green" name="mybtn" onclick="otp(event);">&emsp;&emsp;Generate OTP&emsp;&emsp;&emsp;</button>
+                                 </div>
+    
+                                </div>
+                        </div>
+
+
+
+                            <div class="row row-space">
+                            <div class="col-2">
+                                    <div class="input-group">
+                                        <label class="label">Email OTP</label>
+        <input type="text" class="input--style-4" name="otp" id="otp" onkeypress='return restrictAlphabets(event)' maxlength="4">
+                                    </div>
+                                </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">New Password</label>
+                                    <input class="input--style-4" type="password" name="passw" id="passw">
+                                </div>
+                            </div>
+                                       
+                        </div>                        
+                                           
+                            </div>
+
+
+
+                       
+
+                
+                   
+
+                 </form>
+<div class="p-t-15">
+                    <center><button class="btn btn--radius-2 btn--blue" type="submit" id="mybtn1" name="mybtn1" onclick="subs();">Submit</button></center>
+                        </div><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+ 
+
+<script type="text/javascript">
+    
+var generated;
+document.getElementById("mybtn1").disabled = true;
+
+  function restrictAlphabets(e) {
+             var x = e.which || e.keycode;
+             if ((x >= 48 && x <= 57))
+                 return true;
+             else
+                 return false;
+         }
+
+   $('document').ready(function(){
+   
+ $("form").submit(function(event){
+     event.preventDefault();
+     alert("JI");
+     email=document.getElementById("email").value;
+     $.ajax({
+    url: '/forgototp',
+    type: 'GET',
+    data: {
+        'email':email,
+        
+    },
+    success: function(response)
+    {
+      
+      if(response=="nosend")
+      {
+         alert("USER IS NOT EXISTS");
+      }
+      
+      else
+      {
+        generated=response;
+        alert("OTP SUCCESSFULLY SENDED TO YOUR MAIL ID");
+        document.getElementById("email").disabled=true;
+        document.getElementById("mybtn").disabled=true;
+        document.getElementById("mybtn1").disabled=false;
+      }
+
+    }
+});
+
+ });
+});
+    
+   function subs()
+   {
+      
+      passw=document.getElementById("passw");
+      otp=document.getElementById("otp").value;
+      alert("inside");
+      if(passw.value.length < 8)
+     {
+       alert("PASSWORD REQUIRES MINIMUM EIGHT CHARACTERS");
+     }
+     else if(otp!=generated)
+     {
+        alert("WRONG OTP.ENTER CORRECT OTP")
+     }
+     else
+     {
+        document.getElementById("email").disabled=false;
+        document.myform.submit();
+
+     }
+      
+
+   }
+
+
+</script>
+
+
+
+    <!-- Jquery JS-->
+    <script src="{% static 'register/vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Vendor JS-->
+    <script src="{% static 'register/vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'register/vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{% static 'register/vendor/datepicker/daterangepicker.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'register/js/global.js' %}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
+
+
+
+
